@@ -1,9 +1,10 @@
 from dygie.data.dataset_readers import document
 
+
 if __name__ == '__main__':
     dataset = document.Dataset.from_jsonl("adventure-event.jsonl")
     print(dataset)
-    doc = dataset[0]
+    doc = dataset[2]
     print(doc)
     for sent in doc:
         events = sent.predicted_events

@@ -2,11 +2,12 @@ import json
 import nltk
 import spacy
 import neuralcoref
+from tqdm import tqdm
 nlp = spacy.load('en_core_web_sm')
 neuralcoref.add_to_pipe(nlp)
 
 
-def replace_pronouns(text, is_replace_processive=True):
+def replace_pronouns(text, is_replace_processive=False):
   doc = nlp(text)
   tokens = [str(token) for token in doc]
   for coref in doc._.coref_clusters:
@@ -38,14 +39,14 @@ def read_stories(stories_file):
 
 def process_stories(stories):
     processed_stories = []
-    for sid, story in enumerate(stories):
+    for sid, story in tqdm(enumerate(stories), total=len(stories)):
         processed_sentences = []
         coref_story = replace_pronouns(story)
         sentences = nltk.sent_tokenize(coref_story)
         for sentence in sentences:
             processed_sentences.append(nltk.word_tokenize(sentence))
         processed_story ={"doc_key": "short_stories_"+str(sid),
-                          "dataset": "ace05",
+                          "dataset": "ace-event",
                           "sentences": processed_sentences}
         processed_stories.append(processed_story)
     return processed_stories
@@ -61,7 +62,7 @@ def write_to_json(processed_stories, story_json_file):
 if __name__ == '__main__':
     stories = read_stories("adventure.txt")
     processed_stories = process_stories(stories)
-    write_to_json(processed_stories, "adventure-ace05.json")
+    write_to_json(processed_stories, "adventure-ace-event.json")
 
 
 
