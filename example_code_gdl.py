@@ -7,6 +7,7 @@ def str_to_class(classname):
 
 characters = ['John', 'David', 'Jason']
 clmapping = {'house': ["John", "Jason"], 'station': ['David']}
+lcmapping = {"John": 'house', "David": 'station', "Jason": "house"}
 vehicles = ['SUV', 'truck']
 locations = ['house', 'station']
 almapping = {'house': ["eat", "drink"], 'station': ['park']}
@@ -17,6 +18,7 @@ class John(object):
         self.dialogues = ["Hi, how are you?", "Do you feel very bad?"]
         self.name = "John"
         self.start_location = "house"
+        self.current_location = "house"
 
 
 class David(object):
@@ -24,6 +26,7 @@ class David(object):
         self.dialogues = ["You are amazing!", "You looks good, bro!"]
         self.name = "David"
         self.start_location = "station"
+        self.current_location = "station"
 
 
 class Jason(object):
@@ -31,6 +34,7 @@ class Jason(object):
         self.dialogues = ["Today is a wonderful day!", "You are a hero, bro!"]
         self.name = "Jason"
         self.start_location = "house"
+        self.current_location = "house"
 
 
 class eat(object):
