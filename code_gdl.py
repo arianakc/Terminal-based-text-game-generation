@@ -22,6 +22,14 @@ class David(object):
         self.current_location = "station"
 
 
+class Jason(object):
+    def __init__(self):
+        self.dialogues = ["Today is a wonderful day!", "You are a hero, bro!"]
+        self.name = "Jason"
+        self.start_location = "house"
+        self.current_location = "house"
+
+
 class Mark(object):
     def __init__(self):
         self.dialogues = ["Did you check in, bro?", "We do not accept you, sir!", "Do not take photo in the airport!"]
@@ -44,14 +52,6 @@ class Anna(object):
         self.name = "Anna"
         self.start_location = "beach"
         self.current_location = "beach"
-
-
-class Jason(object):
-    def __init__(self):
-        self.dialogues = ["Today is a wonderful day!", "You are a hero, bro!"]
-        self.name = "Jason"
-        self.start_location = "house"
-        self.current_location = "house"
 
 
 class eat(object):
