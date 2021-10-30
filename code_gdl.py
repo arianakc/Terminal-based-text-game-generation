@@ -1,10 +1,3 @@
-import sys
-
-
-def str_to_class(classname):
-    return getattr(sys.modules[__name__], classname)
-
-
 characters = ['John', 'David', 'Jason', 'Mark', 'Mary', 'Anna']
 clmapping = {'house': ["John", "Jason"], 'station': ['David'], 'airport': ["Mark"], "beach": ['Mary', "Anna"]}
 lcmapping = {"John": 'house', "David": 'station', "Jason": "house", "Mark": "airport", 'Mary': "beach", "Anna": "beach"}

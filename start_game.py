@@ -3,6 +3,11 @@ from copy import deepcopy
 import random
 import time
 import os
+import sys
+
+
+def str_to_class(classname):
+    return getattr(sys.modules[__name__], classname)
 
 
 def say(message):
