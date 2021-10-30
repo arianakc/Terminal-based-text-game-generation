@@ -60,8 +60,7 @@ def parse_text(tokenized):
 
 if __name__ == '__main__':
     stories = read_stories("adventure.txt")
-    print(stories[0])
-    tokenized = word_tokenize(stories[15])
+    tokenized = word_tokenize(stories[7])
     print(tokenized)
     parsed_dialog, parsed_narrative = parse_text(tokenized)
     print("Here is the dialog", parsed_dialog)
