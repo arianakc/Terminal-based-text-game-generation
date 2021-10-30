@@ -1,4 +1,4 @@
-from example_code_gdl import *
+from code_gdl import *
 from copy import deepcopy
 import random
 import time

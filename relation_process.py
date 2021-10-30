@@ -11,7 +11,7 @@ character_ignore_list = ["'s", 'i', 'me', 'my', 'myself', 'we', 'our', 'ours', '
 location_ignore_list = ["this", "that", "here", "building", "side", "wall", "rest", "it", "them", "we","some","there",
                         "place"]
 
-vehicle_ignore_list = ["one", "car", "them", "it", "they", "what", "that", "seat", "black"]
+vehicle_ignore_list = ["one", "them", "it", "they", "what", "that", "seat", "black"]
 
 def extract_characters(doc):
     # NER labeled PER
@@ -62,7 +62,7 @@ def extract_relations(doc):
 if __name__ == '__main__':
     dataset = document.Dataset.from_jsonl("adventure-relation.jsonl")
     print(dataset)
-    doc = dataset[9]
+    doc = dataset[2]
     print(doc)
     for sent in doc:
         relations = sent.predicted_relations
