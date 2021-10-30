@@ -3,7 +3,7 @@ clmapping = {'house': ["John", "Jason"], 'station': ['David'], 'airport': ["Mark
 lcmapping = {"John": 'house', "David": 'station', "Jason": "house", "Mark": "airport", 'Mary': "beach", "Anna": "beach"}
 vehicles = ['SUV', 'truck', "taxi", "bus"]
 locations = ['house', 'station', 'airport', "beach"]
-almapping = {'house': ["eat", "drink"], 'station': ['park'], 'airport': ["checkin"], "beach": ["sleep"]}
+almapping = {'house': ["eat", "drink"], 'station': ['park'], 'airport': ["check_in"], "beach": ["sleep"]}
 
 
 class John(object):
@@ -75,10 +75,10 @@ class park(object):
         self.at_location = "station"
 
 
-class checkin(object):
+class check_in(object):
     def __init__(self):
         self.result = "You checked in! Please go on board!"
-        self.action = "checkin"
+        self.action = "check in"
         self.at_location = "airport"
 
 
