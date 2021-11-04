@@ -35,7 +35,7 @@ please clone the https://github.com/dwadden/dygiepp and follow their instruction
 
 1. **(Finished)** Extract artifacts from natural language stories and generate the code framework
 
-2. **(In development)** Add more missing parts such as interactive dialogues, location maps including direction and distance, more characters properties, etc.
+2. **(Under development)** Add more missing parts such as interactive dialogues, location maps including direction and distance, more characters properties, etc.
 
 3. **(Todo)** Add stories lines or specific tasks for characters just like a text based GTA.
 
