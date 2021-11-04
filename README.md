@@ -22,7 +22,7 @@ python3 start_game.py
 #### Add more content in GDL to generate new games
 1. Open code_gdl.py or create a new one like code_gdl.py. If you create new one with different name, you need also change the import contnent in start_game.py.
 2. Add new characters in variable "characters", then update two character and location mapping variables "clmapping", "lcmapping".
-3. For each added new character,  define a character named class below including its name, start location, current dialogues and dialogues.
+3. For each added new character,  define a character named class below including its name, start location, current locations and dialogues.
 4. Add new locations in variable "locations", then update two character and location mapping variables "clmapping", "lcmapping" to add new character in it.
 5. Add new actions in "almapping" for locations.
 6. For each added new action, define a action named class below including its name, result and at which location.
