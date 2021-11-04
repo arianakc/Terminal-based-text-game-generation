@@ -1,6 +1,13 @@
 # Terminal-based-text-game-generation
 Text based game artifacts extraction and terminal-based interactive fiction game generation from natural language stories.
 
+#### Requirements:
+
+- Python3
+
+- Run it on Mac OS since we included "[say](https://ss64.com/osx/say.html)" command
+- Relation & Event Extraction, NER dependcies see instructions from https://github.com/dwadden/dygiepp
+
 #### Running the generated example([small video demo](https://youtu.be/1JL1eHgsARI))
 
 ```sh
