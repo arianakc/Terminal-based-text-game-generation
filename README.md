@@ -8,9 +8,9 @@ python3 start_game.py
 ```
 
 #### Available prompts:
-- “go to <location>” : travel from one location to another location
-- “talk to <character>”: talk to another character in the same location with you
-- “do <action>”: perform an action available in that location and see the outputs
+- “go to \<location\>” : travel from one location to another location
+- “talk to \<character\>”: talk to another character in the same location with you
+- “do \<action\>”: perform an action available in that location and see the outputs
 - “show characters”: show the list of characters in the same location with you
 - “show locations”: show the locations that you have access to
 - “show actions”: show the actions that you can perform in your current location
