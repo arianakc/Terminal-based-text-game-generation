@@ -1,5 +1,5 @@
 # Terminal-based-text-game-generation
-Automatic artifacts extraction and terminal-based interactive fiction game generation from natural language stories.
+Game artifacts extraction and terminal-based interactive fiction game generation from natural language stories.
 
 #### Running the generated example:
 
