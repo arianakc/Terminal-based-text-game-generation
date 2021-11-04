@@ -1,7 +1,11 @@
 # Terminal-based-text-game-generation
 Text based game artifacts extraction and terminal-based interactive fiction game generation from natural language stories.
 
-#### Running the generated example:
+#### Running the generated example(
+
+[video]: https://youtu.be/1JL1eHgsARI	"small demo"
+
+#### )
 
 ```sh
 python3 start_game.py
