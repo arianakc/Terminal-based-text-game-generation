@@ -62,12 +62,21 @@ def extract_relations(doc):
 if __name__ == '__main__':
     dataset = document.Dataset.from_jsonl("adventure-relation.jsonl")
     print(dataset)
-    doc = dataset[2]
+    doc = dataset[7]
     print(doc)
-    for sent in doc:
-        relations = sent.predicted_relations
-        for relation in relations:
-            print(relation)
-    print(extract_characters(doc))
-    print(extract_locations(doc))
-    print(extract_vehicles(doc))
+    locations = []
+    characters = []
+    vehicles = []
+    # for sent in doc:
+    #     relations = sent.predicted_relations
+    #     for relation in relations:
+    #         print(relation)
+    for doc in dataset:
+        characters.extend(extract_characters(doc))
+        locations.extend(extract_locations(doc))
+        vehicles.extend(extract_vehicles(doc))
+    print(characters)
+    print(locations)
+    print(vehicles)
+
+
