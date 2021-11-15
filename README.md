@@ -9,7 +9,7 @@ Text based game artifacts extraction and terminal-based interactive fiction game
 
 #### Version 2 after project phase 2 update:
 
-##### GDL update:
+##### [Version 2]GDL update:
 
 - Add abstract artifacts as abstract classes including (Character, Item, Action, Location, Path, Map, Vehicle, Dialogue)...
 - Add more properties of characters such as sex, age, health, money, happiness, etc.
@@ -22,7 +22,7 @@ Text based game artifacts extraction and terminal-based interactive fiction game
 - Add gdl support of interaction dialgues but did not finish generating examples(move to project phase 3)
 - Implement the mystery box quest with win and lose conditions
 
-##### More prompts:
+##### [Version 2]More prompts:
 
 - "do \<action\> \<item\>" : conduct an action on an item such as "open a mystery box".
 - "show objects": show objects in the current location.
@@ -32,13 +32,13 @@ Text based game artifacts extraction and terminal-based interactive fiction game
 - "show locations": show nearby locations instead of all locations on the map.
 - "use \<item\>": use an item to change properties of the current selected character.
 
-##### Runing the generated example of version 2:
+##### [Version 2]Runing the generated example of version 2:
 
 ```sh
 python3 start_game_v2.py
 ```
 
-##### Modify content in GDL:
+##### [Version 2]Modify content in GDL:
 
 - Use open code_gdl_v2.py and see the examples and comments in it.
 - You can also refer to gdl_v2_abstract_artifacts.py to see availble artifacts.
