@@ -81,6 +81,6 @@ please clone the https://github.com/dwadden/dygiepp and follow their instruction
 #### Project Phase
 
 1. **(Finished)** Extract artifacts from natural language stories and generate the code framework
-2. **(Finished)** Add more missing parts such as location maps including direction and distance, more characters properties, mystery quest!
+2. **(Finished)** Add more missing parts such as location maps including direction and distance, more characters properties, mystery box quest!
 3. **(Todo)** Add stories lines for characters including interactive dialogues:
 
