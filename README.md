@@ -24,7 +24,7 @@ Text based game artifacts extraction and terminal-based interactive fiction game
 
 ##### [Version 2]More prompts:
 
-- "do \<action\> \<item\>" : conduct an action on an item such as "open a mystery box".
+- "do \<action\> \<item\>" : conduct an action on an item such as "do open mystery_box".
 - "show objects": show objects in the current location.
 - "show items": show items that the current selected character have.
 - "show status": show information about the current selected character.
