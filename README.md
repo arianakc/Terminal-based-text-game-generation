@@ -32,7 +32,7 @@ Text based game artifacts extraction and terminal-based interactive fiction game
 - "show locations": show nearby locations instead of all locations on the map.
 - "use \<item\>": use an item to change properties of the current selected character.
 
-##### [Version 2]Runing the generated example of version 2:
+##### [Version 2]Runing the generated example of version 2([small video demo](https://youtu.be/AVOeYMYu1So)):
 
 ```sh
 python3 start_game_v2.py
