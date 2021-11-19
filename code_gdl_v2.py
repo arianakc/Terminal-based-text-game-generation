@@ -24,23 +24,23 @@ biscuit = Item(9, "biscuit", "It is a biscuit that makes you not hungry.", count
 all_character_items = [health_drug, happy_drug, apple, poison_apple, gold_coin, silver_coin, bronze_coin, cake, biscuit]
 all_character_items_names = [all_character_item.name for all_character_item in all_character_items]
 mystery_box_1 = Item(8, "mystery_box", "A mystery box.", is_container=True,
-                     contains_items=[health_drug, gold_coin, apple])
+                     contains_items=all_character_items)
 mystery_box_2 = Item(9, "mystery_box", "A mystery box.", is_container=True,
-                     contains_items=[happy_drug, poison_apple, bronze_coin])
+                     contains_items=all_character_items)
 mystery_box_3 = Item(10, "mystery_box", "A mystery box.", is_container=True,
-                     contains_items=[apple, gold_coin])
+                     contains_items=all_character_items)
 mystery_box_4 = Item(11, "mystery_box", "A mystery box.", is_container=True,
-                     contains_items=[health_drug, happy_drug])
+                     contains_items=all_character_items)
 mystery_box_5 = Item(12, "mystery_box", "A mystery box.", is_container=True,
-                     contains_items=[silver_coin, apple])
+                     contains_items=all_character_items)
 mystery_box_6 = Item(13, "mystery_box", "A mystery box.", is_container=True,
-                     contains_items=[poison_apple, bronze_coin])
+                     contains_items=all_character_items)
 mystery_box_7 = Item(14, "mystery_box", "A mystery box.", is_container=True,
-                     contains_items=[happy_drug, poison_apple])
+                     contains_items=all_character_items)
 mystery_box_8 = Item(15, "mystery_box", "A mystery box.", is_container=True,
-                     contains_items=[apple, silver_coin, poison_apple])
+                     contains_items=all_character_items)
 mystery_box_9 = Item(16, "mystery_box", "A mystery box.", is_container=True,
-                     contains_items=[silver_coin, bronze_coin, gold_coin])
+                     contains_items=all_character_items)
 
 
 # Selected vehicles: bike, plane, train, car
