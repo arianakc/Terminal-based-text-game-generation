@@ -185,7 +185,7 @@ class Item(object):
         if contains_items is not None:
             num_items = len(contains_items)
             num_selected_items = random.randint(1, num_items)
-            self.contains_items = random.choices(contains_items, k=num_selected_items)
+            self.contains_items = random.sample(contains_items, k=num_selected_items)
         else:
             self.contains_items = contains_items
 
