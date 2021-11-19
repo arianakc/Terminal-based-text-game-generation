@@ -2,6 +2,7 @@ from math import sqrt
 import os
 from draw_map import Graph
 from copy import deepcopy
+import random
 
 
 def say(message):
@@ -64,6 +65,8 @@ class Character(object):
             print_and_say(f"You used {self.hold.name} to attack the {character.name}")
             character.health += self.hold.affect_health
             character.happiness += self.hold.affect_happiness
+        else:
+            print_and_say("You cannot attack without weapon!")
 
     def steal(self, character):
         print_and_say(f"You are stealing {character.name} 's money!")
@@ -238,7 +241,9 @@ class Location(object):
         self.name = name
         self.x = x
         self.y = y
-        self.items = items
+        num_items = len(items)
+        num_selected_items = random.randint(0, num_items)
+        self.items = random.choices(items, k=num_selected_items)
         self.fixed_items = fixed_items
         self.vehicles = vehicles
 
@@ -261,21 +266,21 @@ class Map(object):
         self.locations = locations
         self.paths = paths
 
-    def find_direct_link_location(self, location):
-        direct_link_locations = []
+    def find_nearby_location(self, location):
+        nearby_locations = []
         for path in self.paths:
             if path.location2 == location:
-                direct_link_locations.append((path.location1, path.get_distance()))
+                nearby_locations.append((path.location1, path.get_distance()))
             elif path.location1 == location:
-                direct_link_locations.append((path.location2, path.get_distance()))
-        return direct_link_locations
+                nearby_locations.append((path.location2, path.get_distance()))
+        return nearby_locations
 
-    def find_path(self, location1, location2):
-        dist = []
-        path = []
-        direct_link_locations = self.find_direct_link_location(location1)
-        for location, distance in direct_link_locations:
-            pass
+    # def find_path(self, location1, location2):
+    #     dist = []
+    #     path = []
+    #     nearby_locations = self.find_nearby_location(location1)
+    #     for location, distance in nearby_locations:
+    #         pass
 
     def show(self, current_location):
         all_location_xs = [location.x for location in self.locations]

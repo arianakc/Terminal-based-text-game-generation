@@ -109,7 +109,7 @@ def start():
             check_quest_condition(character)
         while prompt := input(">>"):
             if prompt.startswith("go to"):
-                nearby_location_distances = game_map.find_direct_link_location(character.current_location)
+                nearby_location_distances = game_map.find_nearby_location(character.current_location)
                 nearby_location_names = [location.name for location, distance in nearby_location_distances]
                 nearby_locations = [location for location, distance in nearby_location_distances]
                 target_location_name = prompt.split("go to ")[1]
@@ -224,7 +224,7 @@ def start():
                     print_and_say(f"There is no action to take at {character.current_location.name}")
 
             elif prompt.startswith("show locations"):
-                nearby_location_distances = game_map.find_direct_link_location(character.current_location)
+                nearby_location_distances = game_map.find_nearby_location(character.current_location)
                 if len(nearby_location_distances) > 0:
                     location_names = [location.name for location, distance in nearby_location_distances]
                     print_and_say(f"You found nearby locations: {location_names}!")
