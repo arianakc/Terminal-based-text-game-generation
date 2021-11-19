@@ -182,7 +182,13 @@ class Item(object):
         self.is_fixed_item = is_fixed_item
         self.is_holdable = is_holdable
         self.is_container = is_container
-        self.contains_items = contains_items
+        if contains_items is not None:
+            num_items = len(contains_items)
+            num_selected_items = random.randint(1, num_items)
+            self.contains_items = random.choices(contains_items, k=num_selected_items)
+        else:
+            self.contains_items = contains_items
+
 
     def __eq__(self, other):
         return self.item_id == other.item_id
@@ -241,9 +247,7 @@ class Location(object):
         self.name = name
         self.x = x
         self.y = y
-        num_items = len(items)
-        num_selected_items = random.randint(0, num_items)
-        self.items = random.choices(items, k=num_selected_items)
+        self.items = items
         self.fixed_items = fixed_items
         self.vehicles = vehicles
 
