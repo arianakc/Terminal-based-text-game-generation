@@ -22,13 +22,11 @@ angie = Character(character_id=1, name="Angie", age="25", sex="girl", start_loca
 felix = Character(character_id=2, name="Felix", age="25", sex="boy", start_location=station_walk, voice="Tom")
 girl_1 = Character(character_id=3, name="a_girl", age="NA", sex="girl", start_location=station_walk, voice="Ava")
 all_characters = [joseph, angie, felix, girl_1]
-# Define Dialogue
+# Define Event
 dialogue_1_sentences = ["You should have just let her jump the gate", "That’s against the rules"]
 dialogue_1 = Dialogue(event_id=0, location=station_office, player=joseph, npc=angie, sentences=dialogue_1_sentences,
                       first_to_speak=False)
 joseph.dialogues = [dialogue_1]
-
-# Define Event
 event_1 = Event(event_id=1,
                 instruction="Talk to your coworker Angie.",
                 dialogue=dialogue_1,
@@ -162,8 +160,8 @@ event_11 = Event(event_id=11,
                  instruction="You only had a moment to think about it before You decided to jog through the car doors. "
                              "Jump into the car.",
                  characters=[joseph], location=station_walk, action=jog_through)
-dialogue_7_sentences = ["What’s your name?", "Joseph", "The name is Felix. Welcome aboard,These are my friends."]
 
+dialogue_7_sentences = ["What’s your name?", "Joseph", "The name is Felix. Welcome aboard,These are my friends."]
 dialogue_7 = Dialogue(event_id=12, location=car, player=joseph, npc=felix,
                       sentences=dialogue_7_sentences, first_to_speak=False)
 event_12 = Event(event_id=12, instruction="The group is just as shocked as you are by your presence in the car, "
@@ -172,6 +170,8 @@ event_12 = Event(event_id=12, instruction="The group is just as shocked as you a
                                           "He doesn’t break eye contact with you "
                                           "and you feel your cheeks start to turn pink. Talk to Felix.",
                  dialogue=dialogue_7,
+                 end_text="He stood up from his seat and confidently planted his feet in front of me. "
+                          "I had to tilt my head to meet his eyes. ",
                  characters=[joseph, felix], location=station_walk)
 
 dialogue_8_sentences = ["What is all this?", "People’s lives", "Where did you all say this train was going?",
