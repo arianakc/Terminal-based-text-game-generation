@@ -16,7 +16,7 @@ def print_and_say(message):
 
 class Character(object):
     def __init__(self, character_id, name, sex, age, start_location, hunger=100, health=100, money=100, happiness=100,
-                 is_npc=False, items=None, actions=None, dialogues=None):
+                 is_npc=False, items=None, actions=None, dialogues=None, voice="Alex"):
         if items is None:
             items = []
         if actions is None:
@@ -35,6 +35,7 @@ class Character(object):
         self.is_npc = is_npc
         self.hold = None
         self.dialogues = dialogues
+        self.voice = voice
         if self.dialogues is not None:
             self.dialogues_locations = [dialogue.location for dialogue in dialogues]
 
@@ -128,17 +129,6 @@ class Character(object):
 
     def __eq__(self, other):
         return self.character_id == other.character_id
-
-    def dialogue_response(self, turn_index):
-        if self.current_location not in self.dialogues_locations:
-            print_and_say(f"{self.name} cannot talk to you in {self.current_location}")
-        else:
-            cur_dialogue = [dialogue for dialogue in self.dialogues if dialogue.location == self.current_location][0]
-            cur_speaker, cur_sentence = cur_dialogue.get_sentence_by_turn(self, turn_index)
-            if self == cur_speaker:
-                print_and_say(f"{cur_sentence}")
-            else:
-                print_and_say(f"It's not {self.name}'s turn to speak!")
 
     def show_status(self):
         message = self.name + ", " + self.sex + ", " + self.age + " years old, \n" \
@@ -239,6 +229,9 @@ class Action(object):
 
     def conduct(self, container):
         print_and_say(f"{self.name}ing...{container.name}..")
+
+    def __eq__(self, other):
+        return self.action_id == other.action_id
 
 
 class Location(object):
@@ -349,25 +342,100 @@ class Vehicle(object):
 
 
 class Dialogue(object):
-    def __init__(self, location, target_character, sentences, first_to_speak=True):
+    def __init__(self, event_id, location, player, npc, sentences, first_to_speak=True):
         self.location = location
         self.sentences = sentences
-        self.target_character = target_character
+        self.player = player
+        self.npc = npc
         self.first_to_speak = first_to_speak
 
-    def get_sentence_by_turn(self, current_character, turn_index=0):
+    def get_sentence_by_turn(self, turn_index=0):
         if self.first_to_speak:
             if turn_index % 2 == 0:
-                return current_character, self.sentences[turn_index]
+                return self.player, self.sentences[turn_index]
             else:
-                return self.target_character, self.sentences[turn_index]
+                return self.npc, self.sentences[turn_index]
         else:
             if turn_index % 2 == 0:
-                return self.target_character, self.sentences[turn_index]
+                return self.npc, self.sentences[turn_index]
             else:
-                return current_character, self.sentences[turn_index]
+                return self.player, self.sentences[turn_index]
 
 
-# TEST
-if __name__ == '__main__':
-    pass
+class Event(object):
+    def __init__(self, event_id, instruction, characters, location, children=None,  end_text=None, dialogue=None,
+                 action=None, target_location=None):
+        self.event_id = event_id
+        self.dialogue = dialogue
+        self.characters = characters
+        self.instruction = instruction
+        self.end_text = end_text
+        self.action = action
+        self.location = location
+        self.target_location = target_location
+        self.dialogue_completion = False
+        self.action_completion = False
+        self.move_completion = False
+        self.children = []
+        if children is not None:
+            for child in children:
+                self.add_child(child)
+
+    def __eq__(self, other):
+        return self.event_id == other.event_id
+
+    def add_child(self, node):
+        assert isinstance(node, Event)
+        self.children.append(node)
+
+    def add_children(self, children):
+        if children is not None:
+            for child in children:
+                self.add_child(child)
+
+    def judge_if_event_completed(self, operation):
+        if self.dialogue is not None and self.dialogue_completion is False:
+            if operation.prompt == "talk to" and operation.target_character == self.dialogue.npc:
+                self.dialogue_completion = True
+            else:
+                self.dialogue_completion = False
+        else:
+            self.dialogue_completion = True
+
+        if self.action is not None and self.action_completion is False:
+            if operation.prompt == "do" and operation.action == self.action:
+                self.action_completion = True
+            else:
+                self.action_completion = False
+        else:
+            self.action_completion = True
+
+        if self.target_location is not None and self.move_completion is False:
+            if operation.prompt == "go to" and operation.target_location == self.target_location:
+                self.move_completion = True
+                for character in self.characters:
+                    character.current_location = self.target_location
+            else:
+                self.move_completion = False
+        else:
+            self.move_completion = True
+
+        return self.dialogue_completion and self.action_completion and self.move_completion
+
+
+class Scene(object):
+    def __init__(self, scene_id, events=None, refresh_location=False):
+        self.scene_id = scene_id
+        self.events = events
+        self.refresh_location = refresh_location
+
+    def __eq__(self, other):
+        return self.scene_id == other.scene_id
+
+
+class Operation(object):
+    def __init__(self, prompt, action=None, target_character=None, target_location=None):
+        self.prompt = prompt
+        self.action = action
+        self.target_character = target_character
+        self.target_location = target_location
