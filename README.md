@@ -123,4 +123,5 @@ please clone the https://github.com/dwadden/dygiepp and follow their instruction
 2. **(Finished)** Add more missing parts such as location maps including direction and distance, more characters properties, mystery box quest!
 3. **(Finished)** Add stories lines for characters including interactive dialogues.
 4. (Todo) Evaluation and Bug fixing.
+5. (Todo) Automate the story conversion into GDL by developing NLP.
 
