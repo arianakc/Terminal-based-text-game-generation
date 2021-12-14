@@ -4,7 +4,7 @@ Text based game artifacts extraction and terminal-based interactive fiction game
 #### Requirements:
 
 - Python3
-- Run it on Mac OS since we included "[say](https://ss64.com/osx/say.html)" command
+- Run it on Mac OS since we included "[say](https://ss64.com/osx/say.html)" command, here is a [tutorial](https://support.apple.com/guide/mac-help/change-the-voice-your-mac-uses-to-speak-text-mchlp2290/10.13/mac/10.13) to add more characters voice.
 - Relation & Event Extraction, NER dependcies see instructions from https://github.com/dwadden/dygiepp
 
 #### Version 3 after project phase 3 update:
