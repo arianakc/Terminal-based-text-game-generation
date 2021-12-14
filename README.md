@@ -22,15 +22,15 @@ Text based game artifacts extraction and terminal-based interactive fiction game
 
 See an example in code_gdl_v3.py.
 
-###### Dialogue Event Conversion
+###### **Dialogue Event Conversion**
 
 For Dialogue Event Conversion, we need to first define the dialogue based on the dialogue sentences and speakers. Then Construct the Event with the instruction, the dialogue and the ending text(if there is one).
 
-###### Action Event Conversion
+###### **Action Event Conversion**
 
 For Action Event Conversion, we need to first define the action based on the action verbs and its output text.  Then Construct the Event with the instruction, the action and the ending text(if there is one).
 
-##### Transportation Event Conversion
+###### **Transportation Event Conversion**
 
 For Transportation Event Conversion, we need to first define the target location. Then Construct the Event with the instruction, the target location and the ending text(if there is one).
 
