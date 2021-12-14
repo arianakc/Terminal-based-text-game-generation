@@ -34,7 +34,7 @@ For Action Event Conversion, we need to first define the action based on the act
 
 For Transportation Event Conversion, we need to first define the target location. Then Construct the Event with the instruction, the target location and the ending text(if there is one).
 
-##### Convert Linear to Non-Linear Events
+###### **Convert Linear to Non-Linear Events**
 
 To convert linear into Non-linear events, there are two conditions: 1. If they are parallel root events, make them into the same scene; 2. If they are parallel child events, make them into the children of the same parent event. 
 
