@@ -7,6 +7,45 @@ Text based game artifacts extraction and terminal-based interactive fiction game
 - Run it on Mac OS since we included "[say](https://ss64.com/osx/say.html)" command
 - Relation & Event Extraction, NER dependcies see instructions from https://github.com/dwadden/dygiepp
 
+#### Version 3 after project phase 3 update:
+
+##### [Version 3]GDL update:
+
+- Add abstract class Event represent a story unit.
+  - An event includes the following properties: 1. It has an instruction that includes background text and an instruction for players; 2. It has some characters that included in this event; 3. It has its happened location; 4. It can have some child events or do not have child events; 5. It can have an ending text or do not have the ending text after completion. 
+  - There are three different kinds of events: 1. Dialogue event: talk to other character based on the instruction; 2. Action event: take an action based on the instruction; 3. Transportation events: travel to another location based on the instruction.
+- Add abstract class Scene to represent a series of root events.
+  - A scene includes multiple root events that can happen simultaneously. The list of scenes are in order, scene\_id is from 0 to total number of scenes - 1. If a scene needs to refresh all characters location then set the refresh\_location equals True. During the game play, we iterate the scenes until all scenes are completed. A scene is completed when all its root events and  their children are completed.
+- Add class Operation to monitor the user's operation in each prompting iteration to decide if an event is completed.
+
+##### [Version 3] Convert A Story into the GDL.
+
+See an example in code_gdl_v3.py.
+
+###### Dialogue Event Conversion
+
+For Dialogue Event Conversion, we need to first define the dialogue based on the dialogue sentences and speakers. Then Construct the Event with the instruction, the dialogue and the ending text(if there is one).
+
+###### Action Event Conversion
+
+For Action Event Conversion, we need to first define the action based on the action verbs and its output text.  Then Construct the Event with the instruction, the action and the ending text(if there is one).
+
+##### Transportation Event Conversion
+
+For Transportation Event Conversion, we need to first define the target location. Then Construct the Event with the instruction, the target location and the ending text(if there is one).
+
+##### Convert Linear to Non-Linear Events
+
+To convert linear into Non-linear events, there are two conditions: 1. If they are parallel root events, make them into the same scene; 2. If they are parallel child events, make them into the children of the same parent event. 
+
+##### [Version 3]Runing the generated example of version 3([small video demo](https://www.youtube.com/watch?v=9JKY3U35ESI)):
+
+The source story: https://blog.reedsy.com/short-story/pl21g1/
+
+```sh
+python3 start_game_v3.py
+```
+
 #### Version 2 after project phase 2 update:
 
 ##### [Version 2]GDL update:
@@ -82,5 +121,6 @@ please clone the https://github.com/dwadden/dygiepp and follow their instruction
 
 1. **(Finished)** Extract artifacts from natural language stories and generate the code framework
 2. **(Finished)** Add more missing parts such as location maps including direction and distance, more characters properties, mystery box quest!
-3. **(Todo)** Add stories lines for characters including interactive dialogues:
+3. **(Finished)** Add stories lines for characters including interactive dialogues.
+4. (Todo) Evaluation and Bug fixing.
 
