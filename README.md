@@ -4,7 +4,7 @@ Text based game artifacts extraction and terminal-based interactive fiction game
 #### Requirements:
 
 - Python3
-- Run it on Mac OS since we included "[say](https://ss64.com/osx/say.html)" command, here is a [tutorial](https://support.apple.com/guide/mac-help/change-the-voice-your-mac-uses-to-speak-text-mchlp2290/10.13/mac/10.13) to add more characters voice.
+- Run it on Mac OS since we included "[say](https://ss64.com/osx/say.html)" command, here is a [tutorial](https://support.apple.com/guide/mac-help/change-the-voice-your-mac-uses-to-speak-text-mchlp2290/10.13/mac/10.13) to add more characters' voices.
 - Relation & Event Extraction, NER dependcies see instructions from https://github.com/dwadden/dygiepp
 
 #### Version 3 after project phase 3 update:
@@ -20,7 +20,7 @@ Text based game artifacts extraction and terminal-based interactive fiction game
 
 ##### [Version 3] Convert A Story into the GDL.
 
-See an example in code_gdl_v3.py.
+See an example in [code_gdl_v3.py](https://github.com/arianakc/Terminal-based-text-game-generation/blob/main/code_gdl_v3.py).
 
 ###### **Dialogue Event Conversion**
 
@@ -79,8 +79,8 @@ python3 start_game_v2.py
 
 ##### [Version 2]Modify content in GDL:
 
-- Use open code_gdl_v2.py and see the examples and comments in it.
-- You can also refer to gdl_v2_abstract_artifacts.py to see availble artifacts.
+- Use open [code_gdl_v2.py](https://github.com/arianakc/Terminal-based-text-game-generation/blob/main/code_gdl_v2.py) and see the examples and comments in it.
+- You can also refer to [gdl_v2_abstract_artifacts.py](https://github.com/arianakc/Terminal-based-text-game-generation/blob/main/gdl_v2_abstract_artifacts.py) to see availble artifacts.
 
 #### Previous version 1 after project phase 1:
 
@@ -105,7 +105,7 @@ python3 start_game.py
 
 ##### [Version 1]Add more content in GDL to generate new games
 
-1. Open code_gdl.py or create a new one like code_gdl.py. If you create new one with different name, you need to also change the import name of it in start_game.py.
+1. Open [code_gdl.py](https://github.com/arianakc/Terminal-based-text-game-generation/blob/main/code_gdl.py) or create a new one like [code_gdl.py](https://github.com/arianakc/Terminal-based-text-game-generation/blob/main/code_gdl.py). If you create new one with different name, you need to also change the import name of it in [start_game.py](https://github.com/arianakc/Terminal-based-text-game-generation/blob/main/start_game.py).
 2. Add new characters in variable "characters", then update two character and location mapping variables "clmapping", "lcmapping".
 3. For each added new character,  define a character named class below including its name, start location, current locations and dialogues.
 4. Add new locations in variable "locations", then update two character and location mapping variables "clmapping", "lcmapping" to add new character in it. Also add it into locations and actions mapping variables "almapping".
